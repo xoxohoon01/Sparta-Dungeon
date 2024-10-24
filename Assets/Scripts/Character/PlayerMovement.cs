@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rigid;
-    private Vector3 moveDirection;
+    private Vector2 input;
     private PlayerStatus status;
     
     public void OnMove(InputAction.CallbackContext context)
     {
+        // 키 입력값에 따라 input 값 변경
         if (context.phase == InputActionPhase.Performed)
         {
-            Vector2 input = context.ReadValue<Vector2>();
-            moveDirection = new Vector3(input.x, 0, input.y).normalized;
+            input = context.ReadValue<Vector2>();
         }
         else
         {
-            moveDirection = Vector3.zero;
+            input = Vector3.zero;
         }
     }
     
@@ -35,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (status.CanMove)
         {
+            // 키 입력(input)에 대한 이동
+            Vector3 moveDirection = ((transform.forward * input.y) + (transform.right * input.x)).normalized;
+
+            // 최종 물리 적용
             rigid.velocity = new Vector3(moveDirection.x * status.MoveSpeed, rigid.velocity.y, moveDirection.z * status.MoveSpeed);
         }
     }
