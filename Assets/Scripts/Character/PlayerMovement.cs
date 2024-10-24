@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
             Vector2 input = context.ReadValue<Vector2>();
             moveDirection = new Vector3(input.x, 0, input.y).normalized;
         }
+        else
+        {
+            moveDirection = Vector3.zero;
+        }
     }
     
     public void OnJump(InputAction.CallbackContext context)

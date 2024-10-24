@@ -3931,6 +3931,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7081721227386878294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6750778116311500251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3486534777209044261}
+  m_Layer: 0
+  m_Name: CameraContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3486534777209044261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750778116311500251}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2828922274562337568}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6762245573325338610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,6 +4104,7 @@ GameObject:
   - component: {fileID: 1643068441145884273}
   - component: {fileID: 2396585947716531424}
   - component: {fileID: 8304395515370463154}
+  - component: {fileID: 8850018905619464297}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4095,6 +4127,7 @@ Transform:
   m_Children:
   - {fileID: 1708202562619508548}
   - {fileID: 6194342856221933319}
+  - {fileID: 3486534777209044261}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2714242702887039767
@@ -4225,6 +4258,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c7121e67-aea6-4ad7-9830-985c949ae125
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8850018905619464297}
+        m_TargetAssemblyTypeName: PlayerRotation, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9935f700-9827-4000-ad30-2dfa8041eeea
+    m_ActionName: Player/Look[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4254,6 +4303,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb439f41950bb54b9236a740a21b287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8850018905619464297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7001279440060156272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8574affca3d22d74796715c5efa648ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookSensitivity: 0.05
+  cameraContainer: {fileID: 3486534777209044261}
+  minLookX: -25
+  maxLookX: 85
 --- !u!1 &7100183889935182199
 GameObject:
   m_ObjectHideFlags: 0
