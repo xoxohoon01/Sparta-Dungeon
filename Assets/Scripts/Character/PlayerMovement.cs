@@ -9,15 +9,18 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private PlayerStatus status;
     
-    public void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 input = value.Get<Vector2>();
-        moveDirection = new Vector3(input.x, 0, input.y).normalized;
+        if (context.phase == InputActionPhase.Performed)
+        {
+            Vector2 input = context.ReadValue<Vector2>();
+            moveDirection = new Vector3(input.x, 0, input.y).normalized;
+        }
     }
     
-    public void OnJump(InputValue value)
+    public void OnJump(InputAction.CallbackContext context)
     {
-        if (value.isPressed)
+        if (context.phase == InputActionPhase.Started)
         {
             rigid.AddForce(Vector3.up * status.JumpForce, ForceMode.VelocityChange);
         }
