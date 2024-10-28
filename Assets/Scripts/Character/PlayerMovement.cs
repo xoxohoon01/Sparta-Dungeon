@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            rigid.AddForce(Vector3.up * status.JumpForce, ForceMode.VelocityChange);
+            rigid.velocity = new Vector3(rigid.velocity.x, status.JumpForce, rigid.velocity.z);
         }
         
     }
