@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public bool CanMove { get; private set; }
-    public float MoveSpeed { get; private set; }
-    public float JumpForce { get; private set; }
+    public bool canMove;
+    public float moveSpeed;
+    public float jumpForce;
 
     [SerializeField] public float MaxHP = 100;
     [SerializeField] public float HP = 100;
@@ -14,9 +14,9 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
-        CanMove = true;
-        MoveSpeed = 5.0f;
-        JumpForce = 5.0f;
+        canMove = true;
+        moveSpeed = 5.0f;
+        jumpForce = 5.0f;
         MaxHP = 100.0f;
         HP = MaxHP;
     }

@@ -27,20 +27,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            rigid.velocity = new Vector3(rigid.velocity.x, status.JumpForce, rigid.velocity.z);
+            rigid.velocity = new Vector3(rigid.velocity.x, status.jumpForce, rigid.velocity.z);
         }
         
     }
 
     private void Move()
     {
-        if (status.CanMove)
+        if (status.canMove)
         {
             // 키 입력(input)에 대한 이동
             Vector3 moveDirection = ((transform.forward * input.y) + (transform.right * input.x)).normalized;
 
             // 최종 물리 적용
-            rigid.velocity = new Vector3(moveDirection.x * status.MoveSpeed, rigid.velocity.y, moveDirection.z * status.MoveSpeed);
+            rigid.velocity = new Vector3(moveDirection.x * status.moveSpeed, rigid.velocity.y, moveDirection.z * status.moveSpeed);
         }
     }
 
