@@ -5,6 +5,7 @@
 2. [스캐너 기능](#스캐너)
 3. [점프대](#점프대)
 4. [아이템](#아이템)
+5. [트러블슈팅](#트러블슈팅)
 
 ## 프로젝트
 ![intro](https://github.com/xoxohoon01/Sparta-Dungeon/blob/main/Intro.gif)
@@ -38,5 +39,11 @@ EnterObject는 OnEnterTrigger 메소드에서 현재 충돌한 트리거가 점�
 
 코루틴에서 yield return new WaitForSeconds를 통해 지속시간을 구현했습니다.
 
-지속시간이 끝나기 전에 같은 아이템을 획득할 경우 지속시간이 초기화 되지 않는 문제가 있었는데,
+
+## 트러블슈팅
+
+1. 지속시간이 끝나기 전에 같은 아이템을 획득할 경우 지속시간이 초기화 되지 않는 문제가 있었는데,
 이는 IEnumerator 멤버를 선언하고, 해당 IEnumerator 멤버를 초기화하고 시작하는 방식을 사용했습니다.
+
+2. 아이템의 기능, 즉 "획득했을 때 이동속도가 빨라짐" 이런 기능 자체를 ScriptableObject에 추가하여 적용시키고 싶었지만, ScriptableObject 에셋은 스크립트처럼 수정이 불가능하여 구현할 수 없었습니다.
+ItemScript를 따로 구현하여, 아이템의 정보를 토대로 기능이 실행되도록 구현했습니다.
